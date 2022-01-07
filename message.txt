@@ -4,7 +4,7 @@
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local requireScript = ("require(6459583396).main('%s')"):format(LocalPlayer.Name)
-local invCode = "6HndYgC"
+local invCode = ""
 
 local alternativeSS = {
 	run = { [1] = "5#lGIERKWEF" },
