@@ -21,7 +21,7 @@ local function notify(text)
 	game:GetService("StarterGui"):SetCore(
 	"SendNotification",
 		{
-			Title = "DOEOOT3 Sent you a friend request",
+			Title = "nigger Sent you a friend request",
 			Duration = 3,
 			Text = text
 		}
